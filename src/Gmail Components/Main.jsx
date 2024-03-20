@@ -13,11 +13,10 @@ const Main=()=>{
             <Left />
             <Header/>
             <Mail/>
-            {/* <Routes>
-                <Route path='/mail' element={<Mail/>} />  
-                <Route  path='/started' element={<Started/>} />  
-                {/* <Route  path='/Sent' element={<Sent/>} />        */}
-            {/* </Routes> */}
+            <Routes>
+                <Route  path='inbox' element={<Mail params="Inbox"/>} /> 
+                <Route  path='/sent' element={<Mail params="Sent"/>} />      
+            </Routes>
             <Right/>
             
         </div>

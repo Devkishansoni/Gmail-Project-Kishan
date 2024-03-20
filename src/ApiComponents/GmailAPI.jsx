@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-export default function GoogleApi() {
+
+function GmailAPI() {
     const [accessToken, setAccessToken] = useState('');
 
     const handleLogin = () => {
-        const CLIENT_ID = "73568032304-a9biojfqom4epiqq8j62k7n55komoqe2.apps.googleusercontent.com";
+        const CLIENT_ID = "536101315402-sqpg07gsbva64gboa0avsd96fv20gpcc.apps.googleusercontent.com";
         const REDIRECT_URL = "http://localhost:3000";
         const SCOPE = "https://www.googleapis.com/auth/gmail.readonly";
         const AUTH_URL = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL}&scope=${SCOPE}&response_type=token`;
@@ -67,10 +68,12 @@ export default function GoogleApi() {
                     <>
                         <button onClick={handleLogin}>Login with Google</button>
                         <button onClick={getEmailData}>Get Email</button>
-                        <button onClick={() => fetchMail("18e55981dcc9c87f")}>Fetch Emails</button>
+                        <button onClick={() => fetchMail("18e5a3c34967be03")}>Fetch Emails</button>
                     </>
                 )}
             </div>
         </>
     )
 }
+
+export default GmailAPI

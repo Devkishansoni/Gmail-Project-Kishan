@@ -4,8 +4,8 @@ import { Routes,Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Main from './Gmail Components/Main';
 import Gmail from './Gmail Components/Gmail';
-import Googleapi from './ApiComponents/Googleapi';
-import GmailAPI from './GmailAPI';
+import GmailAPI from './ApiComponents/GmailAPI';
+
 
 
 function App() {
@@ -13,7 +13,6 @@ function App() {
     <div className="App">
       {/* <Gmail/> */}
       {/* <Main/> */}
-      {/* <Googleapi/> */}
       <GmailAPI/>
      
     </div>
