@@ -1,10 +1,10 @@
+import React from 'react'
 import calender from './icons/calendar_2020q4_2x.png'
 import keep from './icons/keep_2020q4v3_2x.png'
 import task from './icons/tasks2_2x.png'
 import contact from './icons/contacts_2x.png'
 import add from './icons/add_black_24dp.svg'
 import chevron from './icons/chevron_right_black_24dp.svg'
-import React from 'react'
 
 const Right=()=>{
     return(

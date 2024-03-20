@@ -1,3 +1,4 @@
+import React from 'react'
 import check from './icons/check_box_outline_blank_black_24dp.svg'
 import arrow from './icons/arrow_drop_down_black_24dp.svg'
 import refresh from './icons/refresh_black_24dp.svg'
@@ -14,12 +15,29 @@ import delet from './icons/delete_black_24dp.svg'
 import mark from './icons/mark_as_unread_black_24dp.svg'
 import time from './icons/access_time_filled_black_24dp.svg'
 import open from './icons/open_in_new_black_24dp.svg'
-import React from 'react'
 import Inbox from './Inbox'
 import Sent from './Sent'
+import Login from './Login'
 
-const Mail = ({ params }) => {
-  console.log(params)
+const Mail = ({ param }) => {
+  console.log(param)
+
+  let data;
+  const renderComponent = (component) => {
+    switch (component) {
+      case "inbox":
+        data = <Inbox />
+        break
+      case "sent":
+        data = <Sent />
+        break
+      default:
+        data = <Login />
+        break
+    }
+    return data
+  }
+
   return (
     <>
       <section class="inbox">
@@ -103,7 +121,9 @@ const Mail = ({ params }) => {
 
 
           <div class="content">
-            {params == "inbox" ? <Inbox/> : <Sent/>}
+            {/* {param == "inbox" ? <Inbox/> : <Sent/>} */}
+            {renderComponent(param)}
+
             {/* ---------------------Foootersection------------------------------ */}
 
             <footer class="activity">

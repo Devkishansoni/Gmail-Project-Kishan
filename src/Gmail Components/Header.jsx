@@ -1,3 +1,4 @@
+import React from 'react'
 import gmaillogo from './icons/logo_gmail_lockup_default_1x_r2.png'
 import menubar from './icons/menu_black_24dp.svg'
 import search from './icons/search_black_24dp.svg'
@@ -7,7 +8,6 @@ import help from './icons/help_outline_black_24dp.svg'
 import setting from './icons/settings_black_24dp.svg'
 import app from './icons/apps_black_24dp.svg'
 import img from './img/profile.jpg'
-import React from 'react'
 
 const Header=()=>{
     return(

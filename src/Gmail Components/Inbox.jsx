@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import checkbox from './icons/check_box_outline_blank_black_24dp.svg'
 import drag from './icons/drag_indicator_black_24dp.svg'
 import star from './icons/star_border_black_24dp.svg'
@@ -8,6 +8,51 @@ import mark from './icons/mark_as_unread_black_24dp.svg'
 import time from './icons/access_time_filled_black_24dp.svg'
 
 export default function Inbox() {
+
+    useEffect(() => {
+        const url = window.location.href;
+        const token = url.match(/access_token=([^&]+)/);
+        localStorage.setItem("Token", token && token[1]);
+        getEmailData();
+    }, []);
+
+
+    const getEmailData = () => {
+        let token = localStorage.getItem("Token");
+        console.log("hello", token);
+        let url = "https://gmail.googleapis.com/gmail/v1/users/me/messages"
+        const options = {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': `application/json`
+            }
+        }
+        fetch(url, options)
+            .then(response => response.json())
+            .then(json => fetchMail(json.messages))
+            .catch(error => console.log('Error in fetching mails', error))
+    }
+
+    const fetchMail = (id) => {
+        console.log("message id is==", id);
+        let token = localStorage.getItem("Token");
+        const options = {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': `application/json`
+            }
+        }
+        for (let message_id of id.slice(0, 10)) {
+            let url = `https://gmail.googleapis.com/gmail/v1/users/me/messages/${message_id.id}`;
+            fetch(url, options)
+                .then(response => response.json())
+                .then(json => console.log("mails data is === ".json))
+                .catch(error => console.log('Error in fetching mails', error))
+        }
+
+    }
     
     return (
         <div>
